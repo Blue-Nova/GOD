@@ -7,7 +7,7 @@ noise_offset = 0;
 const WIDTH = 400;                                                        // HOW WIDE THE SKETCH IS                                 //
 const HEIGHT = 400;                                                       // HOW WIDE THE SKETCH IS                                 //
 const LIFE_TIME=3.5;                                                      // HOW LONG EACH PARTICLE TAKES UNTIL DYING (average)     //
-const START_SIZE=40;                                                      // HOW BIG EACH PARTICLE STARTS OUT                       //
+const START_SIZE=10;                                                      // HOW BIG EACH PARTICLE STARTS OUT                       //
 const MAX_UP_SPEED=8;                                                     // HOW FAST PARTICLES TRAVEL UP                           //
 const MAX_ANGLE=5;                                                        // HOW ANGLED (left and right) EACH PARTICLE COULD TRAVEL //
 const MAX_POPULATION=700;                                                 // MAX AMOUNT OF PARTICLES ON SCREEN POSSIBLE             //
@@ -19,7 +19,7 @@ const RGB_LOWER=[10,0,0];                                                 // MIN
 // CONFIG SECTION END//
 
 function setup() {
-  createCanvas(1800, 1000);
+  createCanvas(WIDTH, HEIGHT);
   frameRate(60);
   noStroke();
 }
