@@ -1,14 +1,20 @@
 objects = [];
 noise_offset = 0;
 
-const LIFE_TIME=3.5;
-const START_SIZE=40;
-const MAX_UP_SPEED=8;
-const MAX_ANGLE=5;
-const MAX_POPULATION=700;
-const POPULATION_GROWTH_SPEED=6;
-const RGB_UPPER=[300,90,20];
-const RGB_LOWER=[10,0,0];
+// CONFIG SECTION START//
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const LIFE_TIME=3.5;                                                      // HOW LONG EACH PARTICLE TAKES UNTIL DYING (average)     //
+const START_SIZE=40;                                                      // HOW BIG EACH PARTICLE STARTS OUT                       //
+const MAX_UP_SPEED=8;                                                     // HOW FAST PARTICLES TRAVEL UP                           //
+const MAX_ANGLE=5;                                                        // HOW ANGLED (left and right) EACH PARTICLE COULD TRAVEL //
+const MAX_POPULATION=700;                                                 // MAX AMOUNT OF PARTICLES ON SCREEN POSSIBLE             //
+const POPULATION_GROWTH_SPEED=6;                                          // HOW MANY PARTICLES SPAWN EACH TICK                     //
+const RGB_UPPER=[300,90,20];                                              // MAX COLORS FOR A PARTICLE                              //
+const RGB_LOWER=[10,0,0];                                                 // MIN COLORS FOR A PARTICLE                              //
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// CONFIG SECTION END//
 
 function setup() {
   createCanvas(1800, 1000);
@@ -17,14 +23,14 @@ function setup() {
 }
 
 function createParticle(index){
-  return new particle(map(random(),0,1,0-(width*0.1),width*1.10,false),  //X
-  START_SIZE+height,                                               //Y
-  1,                                                    //Z
-  START_SIZE,                                                   //SIZE
-  index,                                                //INDEX
+  return new particle(map(random(),0,1,0-(width*0.1),width*1.10,false),   //X
+  START_SIZE+height,                                                      //Y
+  1,                                                                      //Z
+  START_SIZE,                                                             //SIZE
+  index,                                                                  //INDEX
   [map(noise(random(noise_offset)),0,1,RGB_LOWER[0],RGB_UPPER[0],false),  //RED
-  map(noise(random(noise_offset)),0,1,RGB_LOWER[1],RGB_UPPER[1],false),      //GREEN
-  map(noise(random(noise_offset)),0,1,RGB_LOWER[2],RGB_UPPER[2],false)]);                                                  //BLUE
+  map(noise(random(noise_offset)),0,1,RGB_LOWER[1],RGB_UPPER[1],false),   //GREEN
+  map(noise(random(noise_offset)),0,1,RGB_LOWER[2],RGB_UPPER[2],false)]); //BLUE
 }
 
 function newMapVelocity(){
